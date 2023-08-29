@@ -1,11 +1,10 @@
 import StoryItem from "./StoryItem"
 
-function StoryPresent({ story, index }){
-    console.log({index})
+function StoryPresent({ story }){
     
     return <div>
         { 
-            <StoryItem item={story.at(index)} />
+            <StoryItem item={story} />
         }
     </div>
 }
