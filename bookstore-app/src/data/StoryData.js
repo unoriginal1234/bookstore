@@ -1,21 +1,27 @@
 const StoryData = [
     {
         id: 'Room One',
-        text: 'This is room one.',
-        nextid1: 'Room Two',
-        nextid2: 'Room Three',
+        text: 'You are in a Massive Bookstore. Would you like to check out the SCIENCE section or the LOSER section?',
+        nextid1: 'SCIENCE',
+        nextid2: 'LOSER',
     },
     {
-        id: 'Room Two',
-        text: 'This is room two',
-        nextid1: 'Room One',
-        nextid2: 'Room Three',
+        id: 'SCIENCE',
+        text: 'This is room makes no sense to you',
+        nextid1: 'DING DONGS',
+        nextid2: 'LOSER',
     },
     {
-        id: 'Room Three',
-        text: 'This is room three',
-        nextid1: 'Room One',
-        nextid2: 'Room Two',
+        id: 'LOSER',
+        text: 'This room definitely is you vibe.',
+        nextid1: 'DING DONGS',
+        nextid2: 'SCIENCE',
+    },
+    {
+        id: 'DING DONGS',
+        text: 'You should get out of here...',
+        nextid1: 'LOSER',
+        nextid2: 'SCIENCE',
     }
 ]
 
