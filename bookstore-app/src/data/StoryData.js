@@ -1,6 +1,6 @@
 const StoryData = [
     {
-        id: 'Room One',
+        id: 'Play Again',
         text: 'You are in a Massive Bookstore. Would you like to check out the SCIENCE section or the LOSER section?',
         next : ['SCIENCE','LOSER', 'DING DONGS']
     },
@@ -18,8 +18,14 @@ const StoryData = [
     {
         id: 'DING DONGS',
         text: 'You should get out of here...',
-        next : ['LOSER', 'SCIENCE']
+        next : ['LOSER', 'ESCAPE']
+    },
+    {
+        id: 'ESCAPE',
+        text: 'You make it out alive, dripping with sweat. You survived. This time...',
+        next : ['Play Again']
     }
+
 ]
 
 export default StoryData

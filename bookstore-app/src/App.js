@@ -5,18 +5,24 @@ import StoryData from "./data/StoryData"
 import AdventureButton from "./components/AdventureButton"
 
 function App() {
+
+    // var [haveBook, setHaveBook] = useState(false)
+
+    // Can setHaveBook in the user submit form
+
+    // var [book, setBook] = useState('')
+
+    // setBook(book = 'whatever is submitted' useState(haveBook = true))
+
     const [stories, setStories] = useState(StoryData)
 
-    var [present, setPresent] = useState('Room One')
+    var [present, setPresent] = useState('Play Again')
 
     var [story, setStory] = useState(stories.find(story => story.id === present))
 
     const handleClick = (e) => {
-        // console.log(story.nextid1)
-        // I want to know what button is being pressed
-        // Now I'm going to want to loop through the adventure data instead of this if statement
         let nextid = e.target.id;
-        console.log(nextid)
+        // console.log(nextid)
         setPresent(present = nextid)
         setStory(stories.find(story => story.id === present))
     }
