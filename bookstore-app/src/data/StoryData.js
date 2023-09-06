@@ -1,7 +1,7 @@
 const StoryData = [
     {
         id: 'Play Again',
-        text: 'You are in a Massive Bookstore. Would you like to check out the SCIENCE section or the LOSER section?',
+        text: 'You are in a Massive Bookstore. Would you like to check out the SCIENCE section, the LOSER section, or some weird section called DING DONGS?',
         next : ['SCIENCE','LOSER', 'DING DONGS']
     },
     {
@@ -11,7 +11,7 @@ const StoryData = [
     },
     {
         id: 'LOSER',
-        text: 'This room definitely is you vibe.',
+        text: 'This room definitely is your vibe.',
         next : ['DING DONGS', 'SCIENCE']
         
     },
@@ -25,7 +25,6 @@ const StoryData = [
         text: 'You trip on a big fat book. Landing next to it you realize...',
         next : ['You Found It']
     }
-
 ]
 
 export default StoryData

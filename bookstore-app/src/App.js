@@ -24,7 +24,7 @@ function App() {
 
     const addStory = (newStory) => {
         newStory.id = "You Found It"
-        newStory.text = "Look, you got " + newStory.text + "! It's a book about being a dang freak."
+        newStory.text = "You found " + newStory.text + "! It's a book about being a dang freak."
         console.log(newStory)
         newStory.next = ['Play Again']
         setStories([...stories, newStory])
