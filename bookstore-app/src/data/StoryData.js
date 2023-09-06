@@ -22,8 +22,8 @@ const StoryData = [
     },
     {
         id: 'ESCAPE',
-        text: 'You make it out alive, dripping with sweat. You survived. This time...',
-        next : ['Play Again']
+        text: 'You trip on a big fat book. Landing next to it you realize...',
+        next : ['You Found It']
     }
 
 ]

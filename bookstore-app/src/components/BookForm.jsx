@@ -1,71 +1,53 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState } from 'react'
 // import Card from "./shared/Card"
 import Button from "./shared/Button"
 // import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackForm() {
+function BookForm({handleAdd}) {
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
 
-    const {addFeedback, feedbackEdit, updateFeedback } = useContext(FeedbackContext)
-
-    useEffect(() => {
-        if(feedbackEdit.edit === true) {
-            setBtnDisabled(false)
-            setText(feedbackEdit.item.text)
-        }
-
-        console.log('Hello')
-    }, [feedbackEdit])
-
-    const handleTexthChange = (e) => {
-        if(text === ''){
+    const handleTextChange = (e) => {
+        if(text === '') {
             setBtnDisabled(true)
             setMessage(null)
-        } else if(text !== '' && text.trim().length<= 10){
+        } else if (text !== '' && text.trim().length <= 4) {
             setMessage('Make up something fun!')
-            setBtnDisabled(true)
         } else {
             setMessage(null)
             setBtnDisabled(false)
         }
-
         setText(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(text.trim().length > 10){
-            const newFeedback = {
+        if(text.trim().length > 4) {
+            const newStory = {
                 text,
             }
-        
-            if(feedbackEdit.edit === true) {
-                updateFeedback(feedbackEdit.item.id, newFeedback)
-            } else {
-            addFeedback(newFeedback)
-            }
+            handleAdd(newStory)
 
-            setText('')
         }
     }
 
-  return (
-    <Card>
+    return <div className='card'>
         <form onSubmit={handleSubmit}>
-            <h2>What BOOK are you looking for?</h2>
+            <h2>What book are you looking for?</h2>
             <div className="input-group">
-                <input onChange={handleTexthChange} type="text" 
-                placeholder='Write a review' 
-                value={text}/>
-                <Button type="submit" isDisabled={btnDisabled}>Send</Button>
+                <input 
+                    onChange={handleTextChange} 
+                    type="text" 
+                    placeholder='Make up a book!' 
+                    value={text}
+                />
+                <Button type="submit" isDisabled={btnDisabled} version="primary">Search</Button>
             </div>
 
             {message && <div className='message'>{message}</div>}
         </form>
-    </Card>
-  )
+    </div>
 }
 
-export default FeedbackForm
+export default BookForm
