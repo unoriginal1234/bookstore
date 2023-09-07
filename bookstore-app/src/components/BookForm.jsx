@@ -28,7 +28,6 @@ function BookForm({handleAdd}) {
                 text,
             }
             handleAdd(newStory)
-
         }
     }
 
