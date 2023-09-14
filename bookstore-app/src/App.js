@@ -8,25 +8,30 @@ import AdventureButton from "./components/AdventureButton"
 import BookForm from "./components/BookForm"
 import Inventory from "./components/Inventory"
 import SynopsisData from "./data/SynopsisData"
+import StartData from "./data/StartData"
 
 function App() {
 
     const [stories, setStories] = useState(StoryData)
-
     const [books, setBooks] = useState(BookData)
+    
+    const [start] = useState(StartData)
+    var [startCursor, setStartCursor] = useState(0)
+    
 
-    var [present, setPresent] = useState('Play Again')
+    var [present, setPresent] = useState(start[startCursor].text)
 
     var [story, setStory] = useState(stories.find(story => story.id === present))
 
     var [hasBook, setHasBook] = useState(false)
 
-    const [synopsis, setSynopsis] = useState(SynopsisData)
+    const [synopsis] = useState(SynopsisData)
     var [synopsisCursor, setSynopsisCursor] = useState(0)
 
     const handleClick = (e) => {
         if (e.target.id === 'Play Again') {
             setHasBook(hasBook = false)
+            //Reset Data
             setStories(StoryData)
         }
         let nextid = e.target.id;
@@ -36,14 +41,19 @@ function App() {
     }
 
     const addStory = (newStory) => {
-        // This is the inventory
+        
         setSynopsisCursor(
-            synopsisCursor = synopsis[Math.floor(Math.random()*synopsis.length)]
-            )
-        console.log(synopsisCursor)
+            synopsisCursor = synopsis[Math.floor(Math.random()*synopsis.length)])
+        setStartCursor(
+            startCursor = Math.floor(Math.random()*start.length))
+        setPresent(present = start[startCursor].text)
+        console.log(present)
+        setStory(stories.find(story => story.id === present))
+        // console.log(synopsisCursor)
+        // This is the inventory
         newStory.name = newStory.text
         setBooks([newStory,...books])
-        
+        // This sets the text of the last adventure text
         newStory.id = "You Found It"
         newStory.text = "You found " + newStory.text + "! " + synopsisCursor.text
         newStory.next = ['Play Again']
